@@ -1,15 +1,22 @@
-const categorias = {
-  investimentos: { peso: 2, temas: ["Renda fixa", "Selic", "Valuation" /* ... */] },
-  fisica:        { peso: 1, temas: ["Termodinâmica", "Plasma", "Lasers" /* ... */] },
-  biologia:      { peso: 1, temas: ["CRISPR", "Microbioma", "Priões" /* ... */] },
-  historia:      { peso: 1, temas: ["Peste Negra", "Rota da Seda" /* ... */] },
-};
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roleta de Temas</title>
+</head>
+<body>
+  <h1>Roleta de Temas</h1>
+  <button id="girar">Sortear</button>
+  <p id="resultado"></p>
 
-function sortearCategoria() {
-  const total = Object.values(categorias).reduce((s, c) => s + c.peso, 0);
-  let r = Math.random() * total;
-  for (const [nome, c] of Object.entries(categorias)) {
-    r -= c.peso;
-    if (r < 0) return nome;
-  }
-}
+  <script>
+    // cole aqui o seu código (categorias, sortearCategoria, etc.)
+
+    document.getElementById("girar").addEventListener("click", () => {
+      const cat = sortearCategoria();
+      document.getElementById("resultado").textContent = cat;
+    });
+  </script>
+</body>
+</html>
